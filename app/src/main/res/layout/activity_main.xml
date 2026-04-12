@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505">
+
+    <!-- Accelerated Animated Aura Background -->
+    <com.reaper.aestheticlauncher.MeshBackgroundView
+        android:id="@+id/mesh_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ViewPager for Profiles handles rendering its inner RecyclerViews -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Static Header rendering on top of everything -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="50dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:elevation="10dp">
+        
+        <!-- Big Clock -->
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="h:mm"
+            android:format24Hour="hh:mm"
+            android:textSize="44sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="-0.02" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Tabs -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+            
+            <TextView
+                android:id="@+id/tab_personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PERSONAL"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:letterSpacing="0.1"
+                android:layout_marginEnd="16dp" />
+                
+            <TextView
+                android:id="@+id/tab_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WORK 💼"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#66FFFFFF"
+                android:letterSpacing="0.1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

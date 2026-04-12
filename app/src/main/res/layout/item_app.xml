@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/appPermText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="drwxr-xr-x"
+        android:textColor="@color/dracula_purple"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/appLinksText"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="2"
+        android:gravity="end"
+        android:textColor="@color/dracula_fg"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/appUserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="reaper"
+        android:textColor="@color/dracula_pink"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/appGroupText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="root"
+        android:textColor="@color/dracula_pink"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/appSizeText"
+        android:layout_width="36dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="4096"
+        android:gravity="end"
+        android:textColor="@color/dracula_cyan"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/appDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Apr 12 10:24"
+        android:textColor="@color/dracula_comment"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/appNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="camera"
+        android:textColor="@color/dracula_cyan"
+        android:textStyle="bold"
+        android:textSize="12sp" />
+</LinearLayout>
