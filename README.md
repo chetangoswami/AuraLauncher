@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="app/src/main/res/drawable/ic_launcher_foreground.xml" width="200" height="200" alt="Aura Logo">
+  <img src="logo.svg" width="200" height="200" alt="Aura Logo">
   <h1>Aura Launcher</h1>
   <p><b>A minimalist, hyper-modern Android Launcher featuring a 3D animated mesh aura, physics-based kinetic scrolling, and secure work-profile isolation.</b></p>
   
