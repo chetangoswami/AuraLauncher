@@ -32,11 +32,10 @@ object AutoUpdater {
                 if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                     val response = connection.inputStream.bufferedReader().use { it.readText() }
                     val json = JSONObject(response)
-                    val tagName = json.getString("tag_name")
+                    val tagName = json.getString("tag_name").removePrefix("v")
                     
-                    // Simple version comparison. Ex: v1.0.0 vs v1.0
                     val pkgInfo = context.packageManager.getPackageInfo(context.packageName, 0)
-                    val currentVersion = "v" + pkgInfo.versionName
+                    val currentVersion = pkgInfo.versionName?.removePrefix("v") ?: ""
                     
                     if (tagName != currentVersion) {
                         val assets = json.getJSONArray("assets")
