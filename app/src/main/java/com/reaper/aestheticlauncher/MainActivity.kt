@@ -40,6 +40,16 @@ class MainActivity : AppCompatActivity() {
         })
 
         loadApps()
+        
+        // Non-blocking auto-updater check
+        AutoUpdater.checkForUpdates(this) { apkUrl ->
+            val updateBadge = findViewById<TextView>(R.id.update_badge)
+            updateBadge.visibility = android.view.View.VISIBLE
+            updateBadge.setOnClickListener {
+                updateBadge.text = "DOWNLOADING..."
+                AutoUpdater.startUpdateDownload(this, apkUrl)
+            }
+        }
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {

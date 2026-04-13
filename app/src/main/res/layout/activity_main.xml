@@ -115,4 +115,24 @@
             android:alpha="0.75" />
     </LinearLayout>
 
+    <!-- Update Badge -->
+    <TextView
+        android:id="@+id/update_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="32dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:background="#33FFFFFF"
+        android:text="UPDATE AVAILABLE ▼"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:elevation="12dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
 </FrameLayout>
