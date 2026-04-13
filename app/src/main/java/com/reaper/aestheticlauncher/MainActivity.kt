@@ -57,6 +57,24 @@ class MainActivity : AppCompatActivity() {
         
         tabPersonal.setOnClickListener { viewPager.currentItem = 0 }
         tabWork.setOnClickListener { viewPager.currentItem = 1 }
+        
+        // Setup Micro-Dock Taps
+        findViewById<android.widget.ImageView>(R.id.dock_phone).setOnClickListener {
+            startActivity(android.content.Intent(android.content.Intent.ACTION_DIAL))
+        }
+        findViewById<android.widget.ImageView>(R.id.dock_msg).setOnClickListener {
+            val intent = android.content.Intent(android.content.Intent.ACTION_MAIN)
+            intent.addCategory(android.content.Intent.CATEGORY_APP_MESSAGING)
+            intent.flags = android.content.Intent.FLAG_ACTIVITY_NEW_TASK
+            try { startActivity(intent) } catch (e: Exception) {}
+        }
+        findViewById<android.widget.ImageView>(R.id.dock_web).setOnClickListener {
+            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://google.com"))
+            try { startActivity(intent) } catch (e: Exception) {}
+        }
+        findViewById<android.widget.ImageView>(R.id.dock_cam).setOnClickListener {
+            try { startActivity(android.content.Intent(android.provider.MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA)) } catch (e: Exception) {}
+        }
     }
 
     private fun loadApps() {
