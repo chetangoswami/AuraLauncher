@@ -19,18 +19,18 @@
         android:text="drwxr-xr-x"
         android:textColor="@color/dracula_purple"
         android:textSize="12sp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/appLinksText"
-        android:layout_width="16dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="2"
         android:gravity="end"
         android:textColor="@color/dracula_fg"
         android:textSize="12sp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/appUserText"
@@ -40,7 +40,7 @@
         android:text="reaper"
         android:textColor="@color/dracula_pink"
         android:textSize="12sp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/appGroupText"
@@ -50,18 +50,19 @@
         android:text="root"
         android:textColor="@color/dracula_pink"
         android:textSize="12sp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/appSizeText"
-        android:layout_width="36dp"
+        android:layout_width="wrap_content"
+        android:minWidth="30dp"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="4096"
         android:gravity="end"
         android:textColor="@color/dracula_cyan"
         android:textSize="12sp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/appDateText"
@@ -71,15 +72,18 @@
         android:text="Apr 12 10:24"
         android:textColor="@color/dracula_comment"
         android:textSize="12sp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/appNameText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="camera"
         android:textColor="@color/dracula_cyan"
         android:textStyle="bold"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:singleLine="true"
+        android:ellipsize="end" />
 </LinearLayout>
