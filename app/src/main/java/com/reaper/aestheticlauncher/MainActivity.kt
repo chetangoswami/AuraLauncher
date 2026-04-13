@@ -100,8 +100,16 @@ class MainActivity : AppCompatActivity() {
             emptyList()
         }
 
+        val hasWorkProfile = workProfile != null
+        
+        if (!hasWorkProfile) {
+            findViewById<android.view.View>(R.id.tabs_container).visibility = android.view.View.GONE
+        } else {
+            findViewById<android.view.View>(R.id.tabs_container).visibility = android.view.View.VISIBLE
+        }
+
         val adapter = ProfilePagerAdapter()
         viewPager.adapter = adapter
-        adapter.submitData(personalAppsInfo, workAppsInfo)
+        adapter.submitData(personalAppsInfo, workAppsInfo, hasWorkProfile)
     }
 }

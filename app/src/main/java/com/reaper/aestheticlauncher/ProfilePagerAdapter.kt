@@ -9,10 +9,12 @@ class ProfilePagerAdapter : RecyclerView.Adapter<ProfilePagerAdapter.PageViewHol
 
     private var personalApps: List<AppItem> = emptyList()
     private var workApps: List<AppItem> = emptyList()
+    private var hasWorkProfile = true
 
-    fun submitData(personal: List<AppItem>, work: List<AppItem>) {
+    fun submitData(personal: List<AppItem>, work: List<AppItem>, hasWorkProfile: Boolean) {
         personalApps = personal
         workApps = work
+        this.hasWorkProfile = hasWorkProfile
         notifyDataSetChanged()
     }
 
@@ -38,7 +40,7 @@ class ProfilePagerAdapter : RecyclerView.Adapter<ProfilePagerAdapter.PageViewHol
         rv.post { physicsListener.applyPhysics(rv) }
     }
 
-    override fun getItemCount() = 2
+    override fun getItemCount() = if (hasWorkProfile) 2 else 1
 
     class PageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }
