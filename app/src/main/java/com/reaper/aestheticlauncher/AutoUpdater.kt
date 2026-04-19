@@ -62,11 +62,21 @@ object AutoUpdater {
     }
 
     fun startUpdateDownload(context: Context, apkUrl: String) {
+        try {
+            val oldFile = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "AuraLauncher_Update.apk")
+            if (oldFile.exists()) {
+                oldFile.delete()
+            }
+        } catch (e: Exception) {
+            Log.e("AutoUpdater", "Failed to delete old apk", e)
+        }
+
         Toast.makeText(context, "Update downloading in background...", Toast.LENGTH_SHORT).show()
         
         val request = DownloadManager.Request(Uri.parse(apkUrl))
             .setTitle("Aura Launcher Update")
             .setDescription("Downloading latest update...")
+            .setMimeType("application/vnd.android.package-archive")
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "AuraLauncher_Update.apk")
 
@@ -83,8 +93,15 @@ object AutoUpdater {
                         val statusIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)
                         if (statusIndex >= 0 && cursor.getInt(statusIndex) == DownloadManager.STATUS_SUCCESSFUL) {
                             try {
-                                val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "AuraLauncher_Update.apk")
-                                val contentUri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
+                                val localUriIndex = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI)
+                                val downloadedFile = if (localUriIndex >= 0 && cursor.getString(localUriIndex) != null) {
+                                    val localUri = Uri.parse(cursor.getString(localUriIndex))
+                                    File(localUri.path ?: "")
+                                } else {
+                                    File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "AuraLauncher_Update.apk")
+                                }
+                                
+                                val contentUri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", downloadedFile)
 
                                 val installIntent = Intent(Intent.ACTION_VIEW).apply {
                                     setDataAndType(contentUri, "application/vnd.android.package-archive")
