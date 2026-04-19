@@ -7,12 +7,18 @@ android {
     namespace = "com.reaper.aestheticlauncher"
     compileSdk = 35
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("keystore/debug.keystore")
+        }
+    }
+
     defaultConfig {
         applicationId = "com.reaper.aestheticlauncher"
         minSdk = 24
         targetSdk = 35
-        versionCode = 4
-        versionName = "1.0.4"
+        versionCode = 5
+        versionName = "1.0.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
